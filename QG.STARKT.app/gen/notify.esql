@@ -1,0 +1,31 @@
+BROKER SCHEMA gen
+
+CREATE COMPUTE MODULE notify
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputLocalEnvironment = InputLocalEnvironment;
+
+		-- 1. Unauthorised
+		IF InputRoot.XMLNSC.notify.custom.api_token <> 'pass123' THEN
+			SET OutputLocalEnvironment.Destination.HTTP.ReplyStatusCode = 401;
+			RETURN TRUE;
+		END IF;
+		
+		-- 2. Internal Server Error
+		IF InputRoot.XMLNSC.notify.customer_code <> 'STARKT' THEN
+			SET OutputLocalEnvironment.Destination.HTTP.ReplyStatusCode = 500;
+			RETURN TRUE;
+		END IF;
+		
+		-- 3. NOTIFY : PASS
+		IF InputRoot.XMLNSC.notify.bene_account_no = 'STARKT-50512389047333' THEN
+			SET OutputRoot.XMLNSC.notifyResult.result = 'ok';
+			RETURN TRUE;
+		END IF;
+		
+		-- 4. NOTIFY : RETRY
+		SET OutputRoot.XMLNSC.notifyResult.result = 'retry';
+		
+		RETURN TRUE;
+	END;	
+END MODULE;

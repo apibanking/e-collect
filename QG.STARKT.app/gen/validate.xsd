@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:complexType name="validateType">
+    	<xsd:all>
+    		<xsd:element name="customer_code" type="xsd:string"></xsd:element>
+    		<xsd:element name="bene_account_no" type="xsd:string"></xsd:element>
+    		<xsd:element name="bene_account_ifsc" type="xsd:string"></xsd:element>
+    		<xsd:element name="bene_full_name" type="xsd:string"></xsd:element>
+    		<xsd:element name="transfer_type" type="xsd:string"></xsd:element>
+    		<xsd:element name="transfer_unique_no" type="xsd:string"></xsd:element>
+    		<xsd:element name="transfer_timestamp" type="xsd:date"></xsd:element>
+    		<xsd:element name="transfer_ccy" type="xsd:string"></xsd:element>
+    		<xsd:element name="transfer_amt" type="xsd:string"></xsd:element>
+    		<xsd:element name="rmtr_account_no" type="xsd:string"></xsd:element>
+    		<xsd:element name="rmtr_account_ifsc" type="xsd:string"></xsd:element>
+    		<xsd:element name="rmtr_account_type" type="xsd:string"></xsd:element>
+    		<xsd:element name="rmtr_full_name" type="xsd:string"></xsd:element>
+    		<xsd:element name="rmtr_address" type="xsd:string"></xsd:element>
+    		<xsd:element name="rmtr_to_bene_note" type="xsd:string"></xsd:element>
+			<xsd:element name="attempt_no" type="xsd:string"></xsd:element>
+			<xsd:element name="custom" type="customType"></xsd:element>
+    	</xsd:all>
+    </xsd:complexType>
+    
+    <xsd:complexType name="customType">
+    	<xsd:sequence>
+    		<xsd:element name="api_token" type="xsd:string"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="validate" type="validateType"></xsd:element>
+</xsd:schema>
