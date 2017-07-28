@@ -1,0 +1,34 @@
+BROKER SCHEMA gen
+
+CREATE COMPUTE MODULE buildFailure
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.XMLNSC.fault.reason = 'schema validation failure';
+		RETURN TRUE;
+	END;
+END MODULE;
+
+CREATE COMPUTE MODULE JSONtoXML
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputLocalEnvironment = InputLocalEnvironment;
+		SET OutputLocalEnvironment.Request.Type = 'JSON';
+
+		SET OutputRoot.XMLNSC = InputRoot.JSON.Data;
+		RETURN TRUE;
+	END;
+END MODULE;
+
+CREATE COMPUTE MODULE XMLtoJSON
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot = InputRoot;	
+		SET OutputLocalEnvironment = InputLocalEnvironment;
+		
+		IF InputLocalEnvironment.Request.Type = 'JSON' AND FIELDTYPE(InputRoot.XMLNSC.*) IS NOT NULL THEN
+			SET OutputRoot.JSON.Data = InputRoot.XMLNSC;
+			SET OutputRoot.XMLNSC = NULL;
+		END IF;
+		RETURN TRUE;
+	END;
+END MODULE;

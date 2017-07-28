@@ -1,0 +1,46 @@
+BROKER SCHEMA gen
+
+CREATE COMPUTE MODULE validate
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputLocalEnvironment = InputLocalEnvironment;
+		
+		-- 1. Unauthorised
+		IF InputRoot.XMLNSC.validate.custom.api_token <> 'pass123' THEN
+			SET OutputLocalEnvironment.Destination.HTTP.ReplyStatusCode = 401;
+			RETURN TRUE;
+		END IF;
+		
+		-- 2. Internal Server Error
+		IF InputRoot.XMLNSC.validate.customer_code <> 'STARKT' THEN
+			SET OutputLocalEnvironment.Destination.HTTP.ReplyStatusCode = 500;
+			RETURN TRUE;
+		END IF;
+		
+		-- 3. DUPLICATE REQUEST
+		IF  InputRoot.XMLNSC.validate.transfer_unique_no = 'UTR012345' THEN
+			SET OutputRoot.XMLNSC.validateResponse.decision = 'reject';
+			SET OutputRoot.XMLNSC.validateResponse.reject_reason = 'duplicate request';
+			RETURN TRUE;
+		END IF;
+
+		-- 4. VALIDATION : PASS
+		IF InputRoot.XMLNSC.validate.bene_account_no = 'STARKT-50512389047333' THEN
+			SET OutputRoot.XMLNSC.validateResponse.decision = 'pass';
+			SET OutputRoot.XMLNSC.validateResponse.credit_account_no = '5018283108239242';
+			RETURN TRUE;
+		END IF;
+		
+		-- 5. VALIDATION : PENDING
+		IF InputRoot.XMLNSC.validate.bene_account_no = 'STARKT-50512389047222' THEN
+			SET OutputRoot.XMLNSC.validateResponse.decision = 'pending';
+			RETURN TRUE;
+		END IF;
+		
+		-- 6. VALIDATION : REJECT
+		SET OutputRoot.XMLNSC.validateResponse.decision = 'reject';
+		SET OutputRoot.XMLNSC.validateResponse.reject_reason = 'invalid request';
+
+		RETURN TRUE;
+	END;
+END MODULE;
