@@ -1,0 +1,136 @@
+{
+	"variables": [],
+	"info": {
+		"name": "ecollect-json-validate",
+		"_postman_id": "dbc59a9d-4772-5833-67c5-50855ed1536b",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "validate-pass",
+			"request": {
+				"url": "https://api.quantiguous.com/ecollect/json/validate",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic Z3Vlc3Q6cWcxMjMkIw==",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"validate\": {\n    \"customer_code\": \"STARKT\",\n    \"bene_account_no\": \"STARKT-50512389047333\",\n    \"bene_account_ifsc\": \"YESB0123456\",\n    \"bene_full_name\": \"Starkit\",\n    \"transfer_type\": \"NEFT\",\n    \"transfer_unique_no\": \"UTR0123456\",\n    \"transfer_timestamp\": \"2017-12-12\",\n    \"transfer_ccy\": \"INR\",\n    \"transfer_amt\": \"100\",\n    \"rmtr_account_ifsc\": \"HDFC0123546\",\n    \"rmtr_account_type\": \"CA\",\n    \"rmtr_full_name\": \"John\",\n    \"rmtr_address\": \"Mumbai\",\n    \"attempt_no\": \"1\",\n    \"custom\": { \"api_token\": \"pass123\" }\n  }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "validate-pending",
+			"request": {
+				"url": "https://api.quantiguous.com/ecollect/json/validate",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic Z3Vlc3Q6cWcxMjMkIw==",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"validate\": {\n    \"customer_code\": \"STARKT\",\n    \"bene_account_no\": \"STARKT-50512389047222\",\n    \"bene_account_ifsc\": \"YESB0123456\",\n    \"bene_full_name\": \"Starkit\",\n    \"transfer_type\": \"NEFT\",\n    \"transfer_unique_no\": \"UTR0123456\",\n    \"transfer_timestamp\": \"2017-12-12\",\n    \"transfer_ccy\": \"INR\",\n    \"transfer_amt\": \"100\",\n    \"rmtr_account_ifsc\": \"HDFC0123546\",\n    \"rmtr_account_type\": \"CA\",\n    \"rmtr_full_name\": \"John\",\n    \"rmtr_address\": \"Mumbai\",\n    \"attempt_no\": \"1\",\n    \"custom\": { \"api_token\": \"pass123\" }\n  }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "validate-reject",
+			"request": {
+				"url": "https://api.quantiguous.com/ecollect/json/validate",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic Z3Vlc3Q6cWcxMjMkIw==",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"validate\": {\n    \"customer_code\": \"STARKT\",\n    \"bene_account_no\": \"STARKT-00000000000\",\n    \"bene_account_ifsc\": \"YESB0123456\",\n    \"bene_full_name\": \"Starkit\",\n    \"transfer_type\": \"NEFT\",\n    \"transfer_unique_no\": \"UTR0123456\",\n    \"transfer_timestamp\": \"2017-12-12\",\n    \"transfer_ccy\": \"INR\",\n    \"transfer_amt\": \"100\",\n    \"rmtr_account_ifsc\": \"HDFC0123546\",\n    \"rmtr_account_type\": \"CA\",\n    \"rmtr_full_name\": \"John\",\n    \"rmtr_address\": \"Mumbai\",\n    \"attempt_no\": \"1\",\n    \"custom\": { \"api_token\": \"pass123\" }\n  }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "validate-unauthorized",
+			"request": {
+				"url": "https://api.quantiguous.com/ecollect/json/validate",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic Z3Vlc3Q6cWcxMjMkIw==",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"validate\": {\n    \"customer_code\": \"STARKT\",\n    \"bene_account_no\": \"STARKT-50512389047222\",\n    \"bene_account_ifsc\": \"YESB0123456\",\n    \"bene_full_name\": \"Starkit\",\n    \"transfer_type\": \"NEFT\",\n    \"transfer_unique_no\": \"UTR0123456\",\n    \"transfer_timestamp\": \"2017-12-12\",\n    \"transfer_ccy\": \"INR\",\n    \"transfer_amt\": \"100\",\n    \"rmtr_account_ifsc\": \"HDFC0123546\",\n    \"rmtr_account_type\": \"CA\",\n    \"rmtr_full_name\": \"John\",\n    \"rmtr_address\": \"Mumbai\",\n    \"attempt_no\": \"1\",\n    \"custom\": { \"api_token\": \"\" }\n  }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "validate-internal_server_error",
+			"request": {
+				"url": "https://api.quantiguous.com/ecollect/json/validate",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic Z3Vlc3Q6cWcxMjMkIw==",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"validate\": {\n    \"customer_code\": \"WIZCRFT\",\n    \"bene_account_no\": \"STARKT-50512389047222\",\n    \"bene_account_ifsc\": \"YESB0123456\",\n    \"bene_full_name\": \"Wizcraft\",\n    \"transfer_type\": \"NEFT\",\n    \"transfer_unique_no\": \"UTR0123456\",\n    \"transfer_timestamp\": \"2017-12-12\",\n    \"transfer_ccy\": \"INR\",\n    \"transfer_amt\": \"100\",\n    \"rmtr_account_ifsc\": \"HDFC0123546\",\n    \"rmtr_account_type\": \"CA\",\n    \"rmtr_full_name\": \"John\",\n    \"rmtr_address\": \"Mumbai\",\n    \"attempt_no\": \"1\",\n    \"custom\": { \"api_token\": \"pass123\" }\n  }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
