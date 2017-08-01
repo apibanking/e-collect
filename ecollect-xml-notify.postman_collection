@@ -1,0 +1,136 @@
+{
+	"variables": [],
+	"info": {
+		"name": "ecollect-xml-notify",
+		"_postman_id": "22031836-bf5c-6ee4-7f79-aaeef23fcebc",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "notify-unauthorized",
+			"request": {
+				"url": "https://api.quantiguous.com/ecollect/xml/notify",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic Z3Vlc3Q6cWcxMjMkIw==",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<notify>\n\t<customer_code>STARKT</customer_code>\n\t<bene_account_no>STARKT-50512389047333</bene_account_no>\n\t<bene_account_ifsc>YESB0123456</bene_account_ifsc>\n\t<bene_full_name>Starkit</bene_full_name>\n\t<transfer_type>NEFT</transfer_type>\n\t<transfer_unique_no>UTR0123456</transfer_unique_no>\n\t<transfer_timestamp>2017-12-12T12:12:12</transfer_timestamp>\n\t<transfer_ccy>INR</transfer_ccy>\n\t<transfer_amt>100</transfer_amt>\n\t<rmtr_account_no>505808201100900</rmtr_account_no>\n\t<rmtr_account_ifsc>HDFC0123546</rmtr_account_ifsc>\n\t<rmtr_account_type>CA</rmtr_account_type>\n\t<rmtr_full_name>John</rmtr_full_name>\n\t<rmtr_address>Mumbai</rmtr_address>\n\t<rmtr_to_bene_note></rmtr_to_bene_note>\n\t<attempt_no>1</attempt_no>\n\t<status></status>\n\t<credit_acct_no></credit_acct_no>\n\t<credited_at>2017-07-27T12:12:12</credited_at>\n\t<returned_at>2017-07-27T12:12:12</returned_at>\n\t<custom>\n\t    <api_token></api_token>\n\t</custom>\n</notify>"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "notify-internal_server_error",
+			"request": {
+				"url": "https://api.quantiguous.com/ecollect/xml/notify",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic Z3Vlc3Q6cWcxMjMkIw==",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<notify>\n\t<customer_code>WIZCRFT</customer_code>\n\t<bene_account_no>STARKT-50512389047333</bene_account_no>\n\t<bene_account_ifsc>YESB0123456</bene_account_ifsc>\n\t<bene_full_name>Wizcraft</bene_full_name>\n\t<transfer_type>NEFT</transfer_type>\n\t<transfer_unique_no>UTR0123456</transfer_unique_no>\n\t<transfer_timestamp>2017-12-12T12:12:12</transfer_timestamp>\n\t<transfer_ccy>INR</transfer_ccy>\n\t<transfer_amt>100</transfer_amt>\n\t<rmtr_account_no>505808201100900</rmtr_account_no>\n\t<rmtr_account_ifsc>HDFC0123546</rmtr_account_ifsc>\n\t<rmtr_account_type>CA</rmtr_account_type>\n\t<rmtr_full_name>John</rmtr_full_name>\n\t<rmtr_address>Mumbai</rmtr_address>\n\t<rmtr_to_bene_note></rmtr_to_bene_note>\n\t<attempt_no>1</attempt_no>\n\t<status></status>\n\t<credit_acct_no></credit_acct_no>\n\t<credited_at>2017-07-27T12:12:12</credited_at>\n\t<returned_at>2017-07-27T12:12:12</returned_at>\n\t<custom>\n\t    <api_token>pass123</api_token>\n\t</custom>\n\n</notify>"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "notify-ok",
+			"request": {
+				"url": "https://api.quantiguous.com/ecollect/xml/notify",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic Z3Vlc3Q6cWcxMjMkIw==",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<notify>\n\t<customer_code>STARKT</customer_code>\n\t<bene_account_no>STARKT-50512389047333</bene_account_no>\n\t<bene_account_ifsc>YESB0123456</bene_account_ifsc>\n\t<bene_full_name>Starkit</bene_full_name>\n\t<transfer_type>NEFT</transfer_type>\n\t<transfer_unique_no>UTR0123456</transfer_unique_no>\n\t<transfer_timestamp>2017-12-12T12:12:12</transfer_timestamp>\n\t<transfer_ccy>INR</transfer_ccy>\n\t<transfer_amt>100</transfer_amt>\n\t<rmtr_account_no>505808201100900</rmtr_account_no>\n\t<rmtr_account_ifsc>HDFC0123546</rmtr_account_ifsc>\n\t<rmtr_account_type>CA</rmtr_account_type>\n\t<rmtr_full_name>John</rmtr_full_name>\n\t<rmtr_address>Mumbai</rmtr_address>\n\t<rmtr_to_bene_note></rmtr_to_bene_note>\n\t<attempt_no>1</attempt_no>\n\t<status></status>\n\t<credit_acct_no></credit_acct_no>\n\t<credited_at>2017-07-27T12:12:12</credited_at>\n\t<returned_at>2017-07-27T12:12:12</returned_at>\n\t<custom>\n\t    <api_token>pass123</api_token>\n\t</custom>\n</notify>"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "notify-retry",
+			"request": {
+				"url": "https://api.quantiguous.com/ecollect/xml/notify",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic Z3Vlc3Q6cWcxMjMkIw==",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<notify>\n\t<customer_code>STARKT</customer_code>\n\t<bene_account_no>STARKT-50512389047222</bene_account_no>\n\t<bene_account_ifsc>YESB0123456</bene_account_ifsc>\n\t<bene_full_name>Starkit</bene_full_name>\n\t<transfer_type>NEFT</transfer_type>\n\t<transfer_unique_no>UTR0123456</transfer_unique_no>\n\t<transfer_timestamp>2017-12-12T12:12:12</transfer_timestamp>\n\t<transfer_ccy>INR</transfer_ccy>\n\t<transfer_amt>100</transfer_amt>\n\t<rmtr_account_no>505808201100900</rmtr_account_no>\n\t<rmtr_account_ifsc>HDFC0123546</rmtr_account_ifsc>\n\t<rmtr_account_type>CA</rmtr_account_type>\n\t<rmtr_full_name>John</rmtr_full_name>\n\t<rmtr_address>Mumbai</rmtr_address>\n\t<rmtr_to_bene_note></rmtr_to_bene_note>\n\t<attempt_no>1</attempt_no>\n\t<status></status>\n\t<credit_acct_no></credit_acct_no>\n\t<credited_at>2017-07-27T12:12:12</credited_at>\n\t<returned_at>2017-07-27T12:12:12</returned_at>\n\t<custom>\n\t    <api_token>pass123</api_token>\n\t</custom>\n</notify>"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "notify-bad_request",
+			"request": {
+				"url": "https://api.quantiguous.com/ecollect/xml/notify",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic Z3Vlc3Q6cWcxMjMkIw==",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<notify>\n\t<customer_code>STARKT</customer_code>\n\t<bene_account_no>STARKT-50512389047333</bene_account_no>\n\t<bene_account_ifsc>YESB0123456</bene_account_ifsc>\n\t<bene_full_name>Starkit</bene_full_name>\n\t<transfer_type>NEFT</transfer_type>\n\t<transfer_unique_no>UTR0123456</transfer_unique_no>\n\t<transfer_timestamp>2017-12-12T12:12:12</transfer_timestamp>\n\t<transfer_ccy>INR</transfer_ccy>\n\t<transfer_amt>100</transfer_amt>\n\t<!--<rmtr_account_no>505808201100900</rmtr_account_no>-->\n\t<rmtr_account_ifsc>HDFC0123546</rmtr_account_ifsc>\n\t<rmtr_account_type>CA</rmtr_account_type>\n\t<rmtr_full_name>John</rmtr_full_name>\n\t<rmtr_address>Mumbai</rmtr_address>\n\t<rmtr_to_bene_note></rmtr_to_bene_note>\n\t<attempt_no>1</attempt_no>\n\t<status></status>\n\t<credit_acct_no></credit_acct_no>\n\t<credited_at>2017-07-27T12:12:12</credited_at>\n\t<returned_at>2017-07-27T12:12:12</returned_at>\n\t<custom>\n\t    <api_token>pass123</api_token>\n\t</custom>\n</notify>"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
