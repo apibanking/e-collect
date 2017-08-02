@@ -20,7 +20,7 @@
       <nodes xmi:type="ComIbmWSInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_7" location="148,299" URLSpecifier="/ecollect/json/validate" messageDomainProperty="JSON" validateTiming="complete">
         <translation xmi:type="utility:ConstantString" string="HTTP JSON Input"/>
       </nodes>
-      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_9" location="411,18" computeExpression="esql://routine/gen#buildFailure.Main">
+      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_9" location="411,18" computeExpression="esql://routine/gen#buildFailure.Main" computeMode="destinationAndMessage">
         <translation xmi:type="utility:ConstantString" string="buildFailure"/>
       </nodes>
       <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_10" location="360,364" computeExpression="esql://routine/gen#JSONtoXML.Main" computeMode="destinationAndMessage">

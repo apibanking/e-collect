@@ -4,9 +4,9 @@
     nsPrefix="gen_notify.msgflow">
   <eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1">
     <eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
-    <translation xmi:type="utility:TranslatableString" key="notify" bundleName="gen/notify" pluginId="EcollectCustomerService"/>
-    <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/EcollectCustomerService/icons/full/obj16/notify.gif"/>
-    <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/EcollectCustomerService/icons/full/obj30/notify.gif"/>
+    <translation xmi:type="utility:TranslatableString" key="notify" bundleName="gen/notify" pluginId="QG.STARKT.app"/>
+    <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/QG.STARKT.app/icons/full/obj16/notify.gif"/>
+    <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/QG.STARKT.app/icons/full/obj30/notify.gif"/>
     <composition>
       <nodes xmi:type="ComIbmWSReply.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="853,210">
         <translation xmi:type="utility:ConstantString" string="HTTP Reply1"/>
@@ -14,7 +14,7 @@
       <nodes xmi:type="ComIbmWSInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_5" location="159,187" URLSpecifier="/ecollect/xml/notify" messageDomainProperty="XMLNSC" validateTiming="complete" validateMaster="contentAndValue">
         <translation xmi:type="utility:ConstantString" string="HTTP XML Input"/>
       </nodes>
-      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_6" location="422,44" computeExpression="esql://routine/gen#buildFailure.Main">
+      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_6" location="422,44" computeExpression="esql://routine/gen#buildFailure.Main" computeMode="destinationAndMessage">
         <translation xmi:type="utility:ConstantString" string="buildFailure"/>
       </nodes>
       <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_7" location="498,307" computeExpression="esql://routine/gen#notify.Main" computeMode="destinationAndMessage">

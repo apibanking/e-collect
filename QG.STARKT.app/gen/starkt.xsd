@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:element  name="validate">
+        <xsd:complexType>
+          <xsd:all>
+            <xsd:element name="customer_code"  type="customerCodeType"/>	     
+            <xsd:element name="bene_account_no" type="beneficiaryAccountNoType"/>       
+            <xsd:element name="bene_account_ifsc" type="beneficiaryAccountIFSCType"/>     
+            <xsd:element name="bene_full_name" type="benificiaryfullNameType" maxOccurs="1" minOccurs="0"/>       
+            <xsd:element name="transfer_type"  type="transferType"/>	          
+            <xsd:element name="transfer_unique_no" type="transferUniqueNoType"/>	         
+            <xsd:element  name="transfer_timestamp" type="dateTimeType"/>	   
+            <xsd:element  name="transfer_ccy" type="transferCcyType"/>	    
+            <xsd:element  name="transfer_amt" type="transferAmountType"/>	  
+            <xsd:element  name="rmtr_account_no" type="remitterAccountNoType"/>        
+            <xsd:element  name="rmtr_account_ifsc" type="remitterIFSCType"/>     
+            <xsd:element  name="rmtr_account_type" type="remitterAccountType"/>   
+            <xsd:element  name="rmtr_full_name" type="remitterNameType" maxOccurs="1" minOccurs="0"/>    
+            <xsd:element  name="rmtr_address" type="remitterAddressType" maxOccurs="1" minOccurs="0"/>     
+            <xsd:element  name="rmtr_to_bene_note" type="remitterToBeneficiaryNoteType" maxOccurs="1" minOccurs="0"/>
+            <xsd:element  name="attempt_no" type="attempt_noType" maxOccurs="1" minOccurs="0"/>
+            <xsd:element name="custom" type="customType"></xsd:element>
+            
+          </xsd:all>
+        </xsd:complexType>
+      </xsd:element>
+      
+       <xsd:element name="validateResponse">
+        <xsd:complexType>
+          <xsd:all>
+            <xsd:element  name="decision" type="decisionType"/>
+            <xsd:element  name="credit_account_no" type="xsd:string" maxOccurs="1" minOccurs="0"/>
+            <xsd:element  name="reject_reason" type="xsd:string" maxOccurs="1" minOccurs="0"/>
+          </xsd:all>
+        </xsd:complexType>
+      </xsd:element>
+      
+      <xsd:element name="notify">
+        <xsd:complexType>
+          <xsd:all>
+            <xsd:element name="customer_code"  type="customerCodeType"/>	     
+            <xsd:element name="bene_account_no" type="beneficiaryAccountNoType"/>       
+            <xsd:element name="bene_account_ifsc" type="beneficiaryAccountIFSCType"/>     
+            <xsd:element name="bene_full_name" type="benificiaryfullNameType" maxOccurs="1" minOccurs="0"/>       
+            <xsd:element name="transfer_type"  type="transferType"/>	          
+            <xsd:element name="transfer_unique_no" type="transferUniqueNoType"/>	         
+            <xsd:element  name="transfer_timestamp" type="dateTimeType"/>	   
+            <xsd:element  name="transfer_ccy" type="transferCcyType"/>	    
+            <xsd:element  name="transfer_amt" type="transferAmountType"/>	  
+            <xsd:element  name="rmtr_account_no" type="remitterAccountNoType"/>        
+            <xsd:element  name="rmtr_account_ifsc" type="remitterIFSCType"/>     
+            <xsd:element  name="rmtr_account_type" type="remitterAccountType"/>   
+            <xsd:element  name="rmtr_full_name" type="remitterNameType" maxOccurs="1" minOccurs="0"/>    
+            <xsd:element  name="rmtr_address" type="remitterAddressType" maxOccurs="1" minOccurs="0"/>        
+            <xsd:element  name="rmtr_to_bene_note" type="remitterToBeneficiaryNoteType" maxOccurs="1" minOccurs="0"/>
+            <xsd:element  name="attempt_no" type="attempt_noType" maxOccurs="1" minOccurs="0"/>
+            <xsd:element  name="status" type="xsd:string">
+                <xsd:annotation>
+	            		<xsd:documentation>The status of the transaction</xsd:documentation>
+	            	</xsd:annotation></xsd:element>
+            <xsd:element  name="credit_acct_no" type="xsd:string" maxOccurs="1" minOccurs="0">
+                <xsd:annotation>
+	            		<xsd:documentation>The credit account number which is credited after validation transaction success</xsd:documentation>
+	            	</xsd:annotation></xsd:element>
+            <xsd:element  name="credited_at" type="xsd:dateTime" maxOccurs="1" minOccurs="0">
+                    <xsd:annotation>
+	            		<xsd:documentation>The time when credit happened</xsd:documentation>
+	            	</xsd:annotation></xsd:element>
+           <xsd:element  name="returned_at" type="xsd:dateTime" maxOccurs="1" minOccurs="0">
+                    <xsd:annotation>
+	            		<xsd:documentation>The time when return happened</xsd:documentation>
+	            	</xsd:annotation></xsd:element>	
+	       <xsd:element name="custom" type="customType"></xsd:element>           	
+          </xsd:all>
+        </xsd:complexType>
+      </xsd:element>
+      
+       <xsd:element name="notifyResult">
+        <xsd:complexType>
+          <xsd:all>
+            <xsd:element  name="result" type="resultType"/>
+          </xsd:all>
+        </xsd:complexType>
+      </xsd:element>
+
+       <xsd:simpleType name="customerCodeType">
+       <xsd:annotation>
+	   <xsd:documentation>The customer ID that is allocated to the corporate, accessing the service.</xsd:documentation>
+	    </xsd:annotation>
+      	<xsd:restriction base="xsd:string">
+      		<xsd:maxLength value="15" />
+      		<xsd:whiteSpace value="collapse"></xsd:whiteSpace>
+      		<xsd:minLength value="4"></xsd:minLength>
+      	</xsd:restriction>
+      </xsd:simpleType>
+      
+      <xsd:simpleType name="beneficiaryAccountNoType">
+      <xsd:annotation>
+       <xsd:documentation>The account number of the beneficiary.</xsd:documentation>
+        </xsd:annotation>
+    	<xsd:restriction base="xsd:string">
+        	<xsd:maxLength value="64"/>
+   		 </xsd:restriction>
+		</xsd:simpleType>
+		
+		<xsd:simpleType name="beneficiaryAccountIFSCType">
+		<xsd:annotation>
+         <xsd:documentation>The IFSC code of the beneficiary</xsd:documentation>
+          </xsd:annotation>
+    	<xsd:restriction base="xsd:string">
+        	<xsd:maxLength value="20"/>
+   		 </xsd:restriction>
+		</xsd:simpleType>
+		
+		<xsd:simpleType name="benificiaryfullNameType">
+		<xsd:annotation>
+         <xsd:documentation>The full name of the beneficiary</xsd:documentation>
+          </xsd:annotation>
+    	<xsd:restriction base="xsd:string">
+        	<xsd:maxLength value="255"/>
+   		 </xsd:restriction>
+		</xsd:simpleType>
+		
+		
+		<xsd:simpleType name="transferUniqueNoType">
+		<xsd:annotation>
+	     <xsd:documentation>The unique number of the transactions</xsd:documentation>
+	     </xsd:annotation>
+    	<xsd:restriction base="xsd:string">
+        	<xsd:maxLength value="64"/>
+   		 </xsd:restriction>
+		</xsd:simpleType>	
+			
+		<xsd:simpleType name="transferType">
+		<xsd:annotation>
+	    <xsd:documentation>The transfer type of the transactions</xsd:documentation>
+	    </xsd:annotation>
+      	<xsd:restriction base="xsd:string">
+      		<xsd:enumeration value="NEFT"></xsd:enumeration>
+      		<xsd:enumeration value="IMPS"></xsd:enumeration>
+      		<xsd:enumeration value="RTGS"></xsd:enumeration>
+      		<xsd:enumeration value="UPI"></xsd:enumeration>
+      	</xsd:restriction>
+      </xsd:simpleType>
+      
+		<xsd:simpleType name="dateTimeType">
+		<xsd:annotation>
+	    <xsd:documentation>The  timestamp when the transaction was happened</xsd:documentation>
+	    </xsd:annotation>
+    	<xsd:restriction base="xsd:dateTime">
+   		 </xsd:restriction>
+		</xsd:simpleType>
+		
+		<xsd:simpleType name="transferCcyType">
+		<xsd:annotation>
+	    <xsd:documentation>The currency code for the transaction</xsd:documentation>
+	    </xsd:annotation>
+    	<xsd:restriction base="xsd:string">
+        	<xsd:maxLength value="5"/>
+   		 </xsd:restriction>
+		</xsd:simpleType>
+		
+		<xsd:simpleType name="transferAmountType">
+		<xsd:annotation>
+	    <xsd:documentation>The amount which was transferred in the transaction</xsd:documentation>
+	    </xsd:annotation>
+    	<xsd:restriction base="xsd:decimal">
+   		 </xsd:restriction>
+		</xsd:simpleType>
+		
+		<xsd:simpleType name="remitterAccountNoType">
+		<xsd:annotation>
+        <xsd:documentation> The account number of the remitter</xsd:documentation>
+        </xsd:annotation>
+    	<xsd:restriction base="xsd:string">
+        	<xsd:maxLength value="64"/>
+   		 </xsd:restriction>
+		</xsd:simpleType>
+		
+		<xsd:simpleType name="remitterIFSCType">
+		<xsd:annotation>
+        <xsd:documentation>The IFSC code of the remitter.</xsd:documentation>
+        </xsd:annotation>
+    	<xsd:restriction base="xsd:string">
+        	<xsd:maxLength value="20"/>
+   		 </xsd:restriction>
+		</xsd:simpleType>
+		
+		<xsd:simpleType name="remitterAccountType">
+		<xsd:annotation>
+        <xsd:documentation> The account type of the remitter</xsd:documentation>
+        </xsd:annotation>
+    	<xsd:restriction base="xsd:string">
+        	<xsd:maxLength value="10"/>
+   		 </xsd:restriction>
+		</xsd:simpleType>
+		
+		<xsd:simpleType name="remitterNameType">
+		<xsd:annotation>
+        <xsd:documentation>The full name of the remitter,</xsd:documentation>
+        </xsd:annotation>
+    	<xsd:restriction base="xsd:string">
+        	<xsd:maxLength value="255"/>
+   		 </xsd:restriction>
+		</xsd:simpleType>
+		
+		<xsd:simpleType name="remitterAddressType">
+		<xsd:annotation>
+        <xsd:documentation>The address of the remitter</xsd:documentation>
+        </xsd:annotation>
+    	<xsd:restriction base="xsd:string">
+        	<xsd:maxLength value="255"/>
+   		 </xsd:restriction>
+		</xsd:simpleType>
+		
+		<xsd:simpleType name="remitterToBeneficiaryNoteType">
+		<xsd:annotation>
+        <xsd:documentation>The friendly note from the remitter to beneficiary</xsd:documentation>
+        </xsd:annotation>
+    	<xsd:restriction base="xsd:string">
+        	<xsd:maxLength value="255"/>
+   		 </xsd:restriction>
+		</xsd:simpleType>
+	
+		<xsd:simpleType name="decisionType">
+		<xsd:annotation>
+	    <xsd:documentation>The transfer type of the transactions</xsd:documentation>
+	    </xsd:annotation>
+      	<xsd:restriction base="xsd:string">
+      		<xsd:enumeration value="pass"></xsd:enumeration>
+      		<xsd:enumeration value="reject"></xsd:enumeration>
+      		<xsd:enumeration value="pending"></xsd:enumeration>
+      	</xsd:restriction>
+      </xsd:simpleType>
+      
+      <xsd:simpleType name="resultType">
+		<xsd:annotation>
+	    <xsd:documentation>The transfer type of the transactions</xsd:documentation>
+	    </xsd:annotation>
+      	<xsd:restriction base="xsd:string">
+      		<xsd:enumeration value="ok"></xsd:enumeration>
+      		<xsd:enumeration value="retry"></xsd:enumeration>
+      	</xsd:restriction>
+      </xsd:simpleType>
+      
+      <xsd:simpleType name="attempt_noType">
+		<xsd:annotation>
+        <xsd:documentation>The attempt for the transaction</xsd:documentation>
+        </xsd:annotation>
+    	<xsd:restriction base="xsd:integer">
+   		 </xsd:restriction>
+		</xsd:simpleType>
+		
+	<xsd:complexType name="customType">
+    	<xsd:sequence>
+    		<xsd:element name="api_token" type="xsd:string"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>
