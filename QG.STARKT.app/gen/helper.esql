@@ -4,6 +4,7 @@ CREATE COMPUTE MODULE buildFailure
 	CREATE FUNCTION Main() RETURNS BOOLEAN
 	BEGIN
 		SET OutputRoot.XMLNSC.fault.reason = 'schema validation failure';
+		SET OutputLocalEnvironment.Destination.HTTP.ReplyStatusCode = 400;
 		RETURN TRUE;
 	END;
 END MODULE;
